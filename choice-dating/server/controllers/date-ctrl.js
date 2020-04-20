@@ -50,11 +50,12 @@ updateDate = async (req, res) => {
                 message: 'Date not found!',
             })
         }
-        date.name = body.name
-        date.description = body.description
-        date.time = body.time
-        date.type = body.type
-        date.rating = body.rating
+        date.id   = body._id;
+        date.name = body.name;
+        date.description = body.description;
+        date.time = body.time;
+        date.type = body.type;
+        date.rating = body.rating;
         date
             .save()
             .then(() => {

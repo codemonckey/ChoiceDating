@@ -19,7 +19,7 @@ class Links extends Component {
     render() {
         return (
             <React.Fragment>
-                <Link to="/" className="navbar-brand">
+                <Link to="/dates/hello" className="navbar-brand">
                     Idea->Fresh
                 </Link>
                 <Collapse>

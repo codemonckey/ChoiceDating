@@ -1,13 +1,13 @@
 
 import React, { Component } from 'react'
 import api from '../api'
-
+import img from '../images/Card_Background.png'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-    padding: 0 40px 40px 40px;
-    position: relative;
-    left: 25%;
+position: absolute;
+top: 20%;
+left:20%;
 `
 
 const H1 = styled.h1`
@@ -45,6 +45,18 @@ const Th = styled.th`
 const Td = styled.td`
     border: 1px solid #ddd;
     padding: 8px;
+`
+
+const Div = styled.div`
+texxt-align: center;
+background-image: url(${img});
+width: 50%;
+height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 `
 
 class DatesList extends Component {
@@ -115,7 +127,7 @@ class DatesList extends Component {
         console.log('TCL: DatesList -> render -> dates', dates)
 
         return (
-            <div>
+            <Div>
             <H1 id='title'>Date Ideas</H1>
             <Wrapper>
             <table id='dates'>
@@ -125,7 +137,7 @@ class DatesList extends Component {
                </Table>
             </table>
             </Wrapper>
-            </div>
+            </Div>
         )
     }
 }

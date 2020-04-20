@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Dropdown from 'react-dropdown';
 import api from '../api'
-
+import img from '../images/Card_Background.png'
 import styled from 'styled-components'
 
 const options = [
@@ -16,6 +16,7 @@ const Wrapper = styled.div.attrs({
     className: 'form-group',
 })`
     margin: 30px 30px;
+    background-image: url(${img});
 `
 
 const Label = styled.label`
@@ -53,6 +54,7 @@ const DropDown = styled(Dropdown)`
     flex-direction: column;
     border: 1px solid #e5e5e5;
     background-color: white;
+    text-align: center;
 
 `
 
@@ -99,7 +101,7 @@ class DateSubmission extends Component {
             const payload = { name, description, type, rating, time}
     
             await api.insertDate(payload).then(res => {
-                window.alert(`Movie inserted successfully`)
+                window.alert(`Date inserted successfully`)
                 this.setState({
                     name: '',
                     description: '',
@@ -113,10 +115,7 @@ class DateSubmission extends Component {
 
     render() {
         const defaultOption = this.state.type
-        //const placeHolderValue = typeof this.state.selected === 'string' ? this.state.selected : this.state.selected.label
-        const { name, description, type, time } = this.state
-
-        console.log(this.state);
+        const { name, description, time } = this.state
         return (
             <Wrapper>
                 <Title>Submit New Date Idea!</Title>
@@ -135,7 +134,7 @@ class DateSubmission extends Component {
                     onChange={this.handleChangeInputDescription}
                 />
 
-                <DropDown options={options} onChange={this.handleChangeInputType} value={defaultOption} placeholder="Select a Type" />
+                <DropDown options={options} onChange={this.handleChangeInputType} value={defaultOption} placeholder="---Select a Type---" />
 
                 <Label1>Time (Minutes) : </Label1>
                 <InputText
@@ -149,7 +148,7 @@ class DateSubmission extends Component {
                 />
 
                 <Button onClick={this.handleIncludeDate}>Add Date</Button>
-                <CancelButton href={'/dates/list'}>Cancel</CancelButton>
+                <CancelButton href={'/dates/hello'}>Cancel</CancelButton>
 
             </Wrapper>
         )
