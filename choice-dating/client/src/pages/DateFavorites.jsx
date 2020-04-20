@@ -87,14 +87,16 @@ class DateFavorites extends Component {
                 isLoading: false,
             })
         })
-        console.log(this.state.date);
+        this.props.history.push({pathname: '/dates/active', data: this.state.date});
     }
     
     renderCard(){
-
-
-
-        return this.state.dates.map((dates, index) => {
+        if(this.state.dates.length > 0){
+        var obj = [...this.state.dates];
+        obj.sort((a,b) => b.rating - a.rating);
+        
+        
+        return obj.map((dates, index) => {
             return(
             <Card key = {index} onClick={(event)=>{this.clickHandler(event, dates._id)}} id = {dates.id}>
             <Header>{dates.name}</Header>
@@ -105,6 +107,10 @@ class DateFavorites extends Component {
             </Card>
             )
         });
+    }
+    else{
+        return <Card><Header>coudln't find anything</Header></Card>
+    }
     }
 
     render() {

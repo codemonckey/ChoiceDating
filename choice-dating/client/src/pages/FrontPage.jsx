@@ -63,7 +63,7 @@ class FrontPage extends Component {
 
     RandomDate = async (event) => {
 
-        if(type != "Friends" && type != "Date"){
+        if(type !== "Friends" && type != "Date"){
             window.alert(`Must Pick Type`);
             return;
         }

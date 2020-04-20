@@ -84,7 +84,7 @@ class DateTests extends Component {
 
     RandomDate = async (event) => {
 
-        if(type != "Friends" && type != "Date"){
+        if(type !== "Friends" && type !== "Date"){
             window.alert(`Must Pick Type`);
             return;
         }
@@ -95,6 +95,7 @@ class DateTests extends Component {
                 sorted.push(this.state.dates[i]);
             }
         }
+
         if(sorted.length > 0){
         const date = sorted[Math.floor(Math.random() * sorted.length)];
         this.props.history.push({pathname: '/dates/active', data: date});
@@ -117,7 +118,7 @@ class DateTests extends Component {
                     <Text><br/>Please feel free to leave poor reviews on awful posts and to leave astounding reviews on great ones.</Text>
                 </Wrapper>
                 <Selector>
-                    <Button onClick={this.RandomDate} href={'/dates/submit'}>I'm bored</Button>
+                    <Button onClick={this.RandomDate}>I'm bored</Button>
                     <DropDown options={options} onChange={this.handleChangeInputType} value={type} placeholder="Select a Type" />
                 </Selector>
             </Div>

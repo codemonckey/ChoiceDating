@@ -51,7 +51,7 @@ const Div = styled.div`
 texxt-align: center;
 background-image: url(${img});
 width: 50%;
-height: 50%;
+height: 60%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -78,6 +78,7 @@ class DatesList extends Component {
                 isLoading: false,
             })
         })
+        
     }
 
     handleDetails = async event => {

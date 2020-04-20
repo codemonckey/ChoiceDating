@@ -125,7 +125,7 @@ class ActiveDate extends Component {
             <Wrapper>
                 <Name>{this.state.name}</Name>
                 <Description>{this.state.description}</Description>
-                <Time><b>Exprected Time:</b> {this.state.time}</Time>
+                <Time><b>Expected Time:</b> {this.state.time}</Time>
                 <Rating><b>Rating:</b> {this.state.rating}</Rating>
             </Wrapper>
             <Wrapper>
